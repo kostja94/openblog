@@ -1,0 +1,28 @@
+{
+  "name": "openblog",
+  "version": "0.2.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "templates/next"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=openblog-template",
+    "build": "npm run build --workspace=openblog-template",
+    "test": "vitest run",
+    "test:scaffold": "tsx scripts/smoke-scaffold.ts",
+    "lint": "npm run lint --workspace=openblog-template",
+    "validate:posts": "npm run validate:posts --workspace=openblog-template",
+    "theme:infer": "tsx scripts/theme-infer.ts",
+    "integrate": "tsx scripts/integrate.ts",
+    "create-openblog": "tsx packages/create-openblog/src/index.ts",
+    "theme:sync": "npm run theme:sync --workspace=openblog-template"
+  },
+  "devDependencies": {
+    "@openblog/core": "*",
+    "@openblog/themes": "*",
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
+  }
+}

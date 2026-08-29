@@ -1,0 +1,30 @@
+:root {
+  --ob-font-sans: Georgia, "Times New Roman", serif;
+  --ob-color-bg: #fffdf8;
+  --ob-color-surface: #ffffff;
+  --ob-color-text: #1c1917;
+  --ob-color-text-muted: #78716c;
+  --ob-color-muted: var(--ob-color-text-muted);
+  --ob-color-text-subtle: #57534e;
+  --ob-color-border: #e7e5e4;
+  --ob-color-primary: var(--ob-color-accent);
+  --ob-color-primary-fg: #ffffff;
+  --ob-color-code-bg: #f5f5f4;
+  --ob-color-code-fg: var(--ob-color-text);
+  --ob-color-accent: #1c1917;
+  --ob-color-accent-hover: #44403c;
+  --ob-radius-sm: 0.125rem;
+  --ob-radius-md: 0.25rem;
+  --ob-radius-lg: 0.5rem;
+}
+
+body {
+  font-family: var(--ob-font-sans);
+  background: var(--ob-color-bg);
+  color: var(--ob-color-text);
+}
+
+.markdown-content img {
+  margin-block: 1.5rem;
+  width: 100%;
+}

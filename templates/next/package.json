@@ -1,0 +1,39 @@
+{
+  "name": "openblog-template",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run theme:sync && next dev",
+    "build": "npm run theme:sync && npm run validate:posts && next build",
+    "theme:sync": "tsx scripts/sync-theme.ts",
+    "start": "next start",
+    "lint": "eslint",
+    "validate:posts": "tsx scripts/validate-posts.ts"
+  },
+  "dependencies": {
+    "@openblog/components": "*",
+    "@openblog/content": "*",
+    "@openblog/core": "*",
+    "@openblog/themes": "*",
+    "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
+  }
+}

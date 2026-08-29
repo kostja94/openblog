@@ -1,0 +1,43 @@
+:root {
+  color-scheme: light;
+  --ob-color-bg: #faf9f5;
+  --ob-color-surface: #ffffff;
+  --ob-color-text: #141413;
+  --ob-color-muted: #87867f;
+  --ob-color-primary: #d97757;
+  --ob-color-primary-fg: #ffffff;
+  --ob-color-accent: #d97757;
+  --ob-color-border: #e7e5e4;
+  --ob-color-code-bg: #f5f5f4;
+  --ob-color-code-fg: #141413;
+  --ob-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --ob-font-serif: "Lyon Text", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ob-font-mono: ui-monospace, monospace;
+  --ob-content-max: 68ch;
+  --ob-container-max: 1280px;
+  --ob-radius-sm: 8px;
+  --ob-radius-md: 12px;
+  --ob-radius-lg: 24px;
+  --ob-shadow-raised: none;
+}
+
+body {
+  font-family: var(--ob-font-serif);
+  background: var(--ob-color-bg);
+  color: var(--ob-color-text);
+}
+
+h1, h2, h3, .ob-ui-sans {
+  font-family: var(--ob-font-sans);
+}
+
+.markdown-content img {
+  border-radius: var(--ob-radius-lg);
+}
+
+.ob-post-card,
+.ob-featured {
+  border-radius: var(--ob-radius-lg);
+  border: 1px solid var(--ob-color-border);
+  background: var(--ob-color-surface);
+}

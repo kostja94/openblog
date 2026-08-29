@@ -1,0 +1,15 @@
+node_modules/
+.next/
+dist/
+out/
+coverage/
+*.log
+*.tsbuildinfo
+integrations/**/.generated/
+packages/create-openblog/scaffold/
+audit-test-blog/
+.tmp-test-openblog/
+.env
+.env*.local
+.DS_Store
+Thumbs.db

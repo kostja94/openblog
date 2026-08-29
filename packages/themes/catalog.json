@@ -1,0 +1,57 @@
+{
+  "launchPresets": [
+    "openai-monochrome",
+    "anthropic-parchment",
+    "vercel-geist",
+    "linear-lavender-dark",
+    "figma-magazine-pastel",
+    "stripe-fintech-gradient"
+  ],
+  "axes": [
+    {
+      "id": "monochrome-light",
+      "preset": "openai-monochrome",
+      "name": "Monochrome Light",
+      "reference": "docs/theme-axes/01-monochrome-light.md"
+    },
+    {
+      "id": "serif-editorial-warm",
+      "preset": "anthropic-parchment",
+      "name": "Serif Editorial Warm",
+      "reference": "docs/theme-axes/02-serif-editorial-warm.md"
+    },
+    {
+      "id": "developer-prose",
+      "preset": "vercel-geist",
+      "name": "Developer Prose",
+      "reference": "docs/theme-axes/03-developer-prose.md"
+    },
+    {
+      "id": "dark-precision",
+      "preset": "linear-lavender-dark",
+      "name": "Dark Precision",
+      "reference": "docs/theme-axes/04-dark-precision.md"
+    },
+    {
+      "id": "magazine-expressive",
+      "preset": "figma-magazine-pastel",
+      "name": "Magazine Expressive",
+      "reference": "docs/theme-axes/05-magazine-expressive.md"
+    },
+    {
+      "id": "chromatic-fintech",
+      "preset": "stripe-fintech-gradient",
+      "name": "Chromatic Fintech",
+      "reference": "docs/theme-axes/06-chromatic-fintech.md"
+    }
+  ],
+  "builtinPresets": ["product", "minimal", "editorial"],
+  "domainPresetMap": {
+    "openai.com": "openai-monochrome",
+    "anthropic.com": "anthropic-parchment",
+    "vercel.com": "vercel-geist",
+    "linear.app": "linear-lavender-dark",
+    "figma.com": "figma-magazine-pastel",
+    "stripe.com": "stripe-fintech-gradient"
+  }
+}

@@ -1,0 +1,31 @@
+:root {
+  --ob-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --ob-color-bg: #ffffff;
+  --ob-color-surface: #fafafa;
+  --ob-color-text: #0a0a0a;
+  --ob-color-text-muted: #737373;
+  --ob-color-muted: var(--ob-color-text-muted);
+  --ob-color-text-subtle: #525252;
+  --ob-color-border: #e5e5e5;
+  --ob-color-primary: var(--ob-color-accent);
+  --ob-color-primary-fg: #ffffff;
+  --ob-color-code-bg: #f5f5f5;
+  --ob-color-code-fg: var(--ob-color-text);
+  --ob-color-accent: #171717;
+  --ob-color-accent-hover: #404040;
+  --ob-radius-sm: 0.25rem;
+  --ob-radius-md: 0.5rem;
+  --ob-radius-lg: 0.75rem;
+}
+
+body {
+  font-family: var(--ob-font-sans);
+  background: var(--ob-color-bg);
+  color: var(--ob-color-text);
+}
+
+.markdown-content img {
+  margin-block: 1.5rem;
+  width: 100%;
+  border-radius: var(--ob-radius-md);
+}

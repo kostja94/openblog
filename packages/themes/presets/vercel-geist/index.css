@@ -1,0 +1,60 @@
+:root {
+  color-scheme: light;
+  --ob-color-bg: #ffffff;
+  --ob-color-surface: #fafafa;
+  --ob-color-text: #171717;
+  --ob-color-muted: #4d4d4d;
+  --ob-color-primary: #171717;
+  --ob-color-primary-fg: #ffffff;
+  --ob-color-accent: #0070f3;
+  --ob-color-border: #ebebeb;
+  --ob-color-code-bg: #0a0a0a;
+  --ob-color-code-fg: #fafafa;
+  --ob-font-sans: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --ob-font-serif: Georgia, serif;
+  --ob-font-mono: "Geist Mono", ui-monospace, monospace;
+  --ob-content-max: 680px;
+  --ob-container-max: 1200px;
+  --ob-radius-sm: 4px;
+  --ob-radius-md: 6px;
+  --ob-radius-lg: 12px;
+  --ob-shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: var(--ob-font-sans);
+  background: var(--ob-color-bg);
+  color: var(--ob-color-text);
+}
+
+.markdown-content img {
+  border-radius: var(--ob-radius-md);
+  border: 1px solid var(--ob-color-border);
+}
+
+.markdown-content pre {
+  font-family: var(--ob-font-mono);
+  background: var(--ob-color-code-bg);
+  color: var(--ob-color-code-fg);
+}
+
+.ob-post-card,
+.ob-featured {
+  border-radius: var(--ob-radius-md);
+  border: 1px solid var(--ob-color-border);
+  background: var(--ob-color-surface);
+  box-shadow: var(--ob-shadow-raised);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.ob-theme-system {
+    color-scheme: dark;
+    --ob-color-bg: #000000;
+    --ob-color-surface: #1a1a1a;
+    --ob-color-text: #ededed;
+    --ob-color-muted: #a1a1a1;
+    --ob-color-border: #292929;
+    --ob-color-code-bg: #0a0a0a;
+    --ob-color-code-fg: #ededed;
+  }
+}

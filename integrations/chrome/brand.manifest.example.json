@@ -1,0 +1,27 @@
+{
+  "siteUrl": "https://yourproduct.com",
+  "homeUrl": "https://yourproduct.com",
+  "logo": "/brand/logo.svg",
+  "logoAlt": "Your Product",
+  "nav": [
+    { "label": "Product", "href": "https://yourproduct.com", "external": true },
+    { "label": "Docs", "href": "https://yourproduct.com/docs", "external": true },
+    { "label": "Blog", "href": "/blog", "match": "blog" },
+    { "label": "Pricing", "href": "https://yourproduct.com/pricing", "external": true }
+  ],
+  "footer": {
+    "columns": [
+      {
+        "title": "Product",
+        "links": [
+          { "label": "Features", "href": "https://yourproduct.com/features", "external": true },
+          { "label": "Blog", "href": "/blog", "match": "blog" }
+        ]
+      }
+    ],
+    "legal": [
+      { "label": "Privacy", "href": "https://yourproduct.com/privacy", "external": true },
+      { "label": "Terms", "href": "https://yourproduct.com/terms", "external": true }
+    ]
+  }
+}

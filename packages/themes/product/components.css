@@ -1,0 +1,24 @@
+.markdown-content img {
+  margin-block: 1.5rem;
+  width: 100%;
+  border-radius: var(--ob-radius-md);
+  border: 1px solid var(--ob-color-border);
+}
+
+.ob-post-card {
+  border-radius: var(--ob-radius-lg);
+  border: 1px solid var(--ob-color-border);
+  background: var(--ob-color-surface);
+}
+
+.ob-featured {
+  border-radius: calc(var(--ob-radius-lg) + 0.25rem);
+  border: 1px solid var(--ob-color-border);
+  background: linear-gradient(to bottom right, var(--ob-color-bg), var(--ob-color-surface));
+}
+
+.ob-toc {
+  border: 1px solid var(--ob-color-border);
+  border-radius: var(--ob-radius-md);
+  background: var(--ob-color-surface);
+}

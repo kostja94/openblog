@@ -1,0 +1,38 @@
+{
+  "name": "create-openblog",
+  "version": "0.2.0",
+  "description": "Scaffold a new OpenBlog project from the official Next.js template",
+  "bin": {
+    "create-openblog": "./bin/create-openblog.js"
+  },
+  "scripts": {
+    "create": "tsx src/index.ts",
+    "bundle-scaffold": "tsx scripts/bundle-scaffold.ts"
+  },
+  "files": [
+    "bin",
+    "src",
+    "scaffold"
+  ],
+  "prepublishOnly": "tsx scripts/bundle-scaffold.ts",
+  "dependencies": {
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostja94/openblog.git",
+    "directory": "packages/create-openblog"
+  },
+  "homepage": "https://github.com/kostja94/openblog#readme",
+  "bugs": {
+    "url": "https://github.com/kostja94/openblog/issues"
+  }
+}

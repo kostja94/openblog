@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="OpenBlog cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fafafa"/>
+      <stop offset="100%" stop-color="#e4e4e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="470" rx="32" fill="#ffffff" stroke="#d4d4d8"/>
+  <text x="140" y="220" fill="#71717a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" letter-spacing="6">OPEN BLOG</text>
+  <text x="140" y="310" fill="#09090b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="56" font-weight="600">Git-native blog module</text>
+  <text x="140" y="380" fill="#52525b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="32">Markdown in Git · Agent Skills · SEO built in</text>
+</svg>
