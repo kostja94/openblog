@@ -24,7 +24,7 @@ OpenBlog is a **Git-based CMS-like workflow** for a **blog module** on your prod
 
 Optional content workflows (`create-post`, `publish`) exist but **the primary path is mounting the module**, not auto-generating articles.
 
-Demo: [alignify.co](https://alignify.co) (product site with blog/guides) · [openblog.ai/blog](https://openblog.ai/blog)
+Demo: [Alignify](https://alignify.co) · [How to build a blog without a CMS, using AI](https://alignify.co/blog/how-to-build-a-blog-without-a-cms-using-ai)
 
 ---
 
@@ -343,5 +343,5 @@ MIT — see [LICENSE](./LICENSE).
 - [docs/README.md](./docs/README.md) — documentation index
 - [docs/features.md](./docs/features.md) — optional categories, tags, authors, RSS
 - [docs/theming.md](./docs/theming.md) — theme presets and inference
-- [How to build a blog without a CMS, using AI](https://alignify.co/en/blog/how-to-build-a-blog-without-a-cms-using-ai) — Content-as-Code and agent workflows
+- [How to build a blog without a CMS, using AI](https://alignify.co/blog/how-to-build-a-blog-without-a-cms-using-ai) — Content-as-Code and agent workflows
 - Lee Robinson — [Content is just code](https://leerob.com/agents) — migrating from headless CMS to Markdown in Git

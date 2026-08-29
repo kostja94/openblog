@@ -1,6 +1,6 @@
 # OpenBlog — Next.js Template
 
-Official OpenBlog template. Demo target: [openblog.ai/blog](https://openblog.ai/blog).
+Official OpenBlog template. Demo URLs in this repo use **`openblog.ai`** as a placeholder domain (not a live site).
 
 ## Quick start
 
