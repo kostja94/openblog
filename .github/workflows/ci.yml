@@ -18,6 +18,14 @@ jobs:
 
       - run: npm ci
 
+      # npm ci skips platform optional deps when lockfile was generated on another OS (npm/cli#4828)
+      - name: Install Linux native bindings for Tailwind CSS
+        run: |
+          npm install --no-save --include=optional \
+            lightningcss-linux-x64-gnu@1.32.0 \
+            @tailwindcss/oxide-linux-x64-gnu@4.3.3 \
+            --workspace=openblog-template
+
       - run: npm run test
 
       - run: npm run test:scaffold
