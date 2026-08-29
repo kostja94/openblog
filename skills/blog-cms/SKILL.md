@@ -20,7 +20,7 @@ This skill is the **entry point**. It routes to the right workflow, then reads t
 
 ---
 
-## Install (skills.sh)
+## Install
 
 ```bash
 # Entry skill only

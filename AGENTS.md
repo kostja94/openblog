@@ -102,7 +102,7 @@ Use repo skills in `skills/` (install via [skills/README.md](./skills/README.md)
 
 | Skill | Purpose |
 |-------|---------|
-| **`blog-cms`** | **Entry** — route integrate vs scaffold; skills.sh install starting point |
+| **`blog-cms`** | **Entry** — route integrate vs scaffold |
 | **`integrate-product-site`** | **Primary** — mount blog on existing product site (chrome, patterns, `npm run integrate`) |
 | **`setup-blog-module`** | **Primary** — greenfield scaffold, config, env, theme, features, validate/build |
 | `create-post` | Optional — add post when user provides body/brief |

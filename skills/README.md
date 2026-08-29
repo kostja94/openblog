@@ -2,8 +2,6 @@
 
 Agent skills for **[OpenBlog](https://github.com/kostja94/openblog)** — Git-based blog CMS module for product sites.
 
-[![skills.sh](https://skills.sh/b/kostja94/openblog)](https://skills.sh/kostja94/openblog)
-
 ## Quick install
 
 ```bash
@@ -20,13 +18,13 @@ npx skills add kostja94/openblog --skill '*'
 npx skills add kostja94/openblog --list
 ```
 
-Works with Cursor, Claude Code, Codex, Windsurf, and [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via the [skills CLI](https://skills.sh/docs).
+Works with Cursor, Claude Code, Codex, Windsurf, and [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via the [skills CLI](https://github.com/vercel-labs/skills).
 
 ## Skills
 
 | Skill | Role |
 |-------|------|
-| **[blog-cms](./blog-cms/SKILL.md)** | **Entry** — route integrate vs scaffold; install starting point for [skills.sh](https://skills.sh) |
+| **[blog-cms](./blog-cms/SKILL.md)** | **Entry** — route integrate vs scaffold |
 | [integrate-product-site](./integrate-product-site/SKILL.md) | **Primary** — mount `/blog` on existing product site |
 | [setup-blog-module](./setup-blog-module/SKILL.md) | **Primary** — greenfield `create-openblog` |
 | [create-post](./create-post/SKILL.md) | Optional — add post when user provides content |

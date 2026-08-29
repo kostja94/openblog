@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/kostja94/openblog)](https://github.com/kostja94/openblog/stargazers)
-[![skills.sh](https://skills.sh/b/kostja94/openblog)](https://skills.sh/kostja94/openblog)
 
 **OpenBlog** is an **open-source, Git-based CMS for blogs** — an **agent-native blog module** you mount on product websites (typically at `/blog`). Markdown in Git is the source of truth. A Next.js template renders list pages, post pages, RSS, sitemap, and JSON-LD. Coding agents follow `AGENTS.md` and Skills to maintain the module through Pull Requests.
 
@@ -47,7 +46,7 @@ Options: `--dir`, `--preset vercel-geist`, `--no-install`. Skill: `setup-blog-mo
 npx skills add kostja94/openblog --skill blog-cms integrate-product-site setup-blog-module
 ```
 
-Entry skill: **`blog-cms`**. Full list: [skills/README.md](./skills/README.md) · [skills.sh](https://skills.sh/kostja94/openblog)
+Entry skill: **`blog-cms`**. Full list: [skills/README.md](./skills/README.md)
 
 **Note:** Demo URLs in config/examples use **`openblog.ai`** as a placeholder domain (not a live site).
 
