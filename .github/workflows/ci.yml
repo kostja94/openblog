@@ -13,10 +13,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
+
+      # lockfile is generated on Windows; ensure Linux native bindings for Tailwind/lightningcss
+      - run: npm rebuild lightningcss --workspace=openblog-template
 
       - run: npm run test
 
