@@ -9,6 +9,7 @@ Documentation index for the OpenBlog monorepo.
 | [Features](./features.md) | Optional categories, tags, authors, RSS |
 | [Theming](./theming.md) | Presets, `theme:infer`, CSS tokens |
 | [Theme axes](./theme-axes/) | Six design-axis reference docs (01–06) |
+| [Component model](./component-model.md) | OpenBlog implementations mapped to Bricks concepts |
 
 ## Related
 
