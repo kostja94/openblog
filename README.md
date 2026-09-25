@@ -1,9 +1,9 @@
-# OpenBlog — Open Source CMS for Blogs
+# OpenBlog — Agent-Native Blog Infrastructure
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/kostja94/openblog)](https://github.com/kostja94/openblog/stargazers)
 
-**OpenBlog** is an **open-source, Git-based CMS for blogs** — an **agent-native blog module** you mount on product websites (typically at `/blog`). Markdown in Git is the source of truth. A Next.js template renders list pages, post pages, RSS, sitemap, and JSON-LD. Coding agents follow `AGENTS.md` and Skills to maintain the module through Pull Requests.
+**OpenBlog** is an open-source, agent-native blog module for product websites. Mount it at `/blog`, keep Markdown in Git as the content source of truth, and let coding agents maintain the module through reviewable Pull Requests. The Next.js template renders list pages, post pages, RSS, sitemap, and JSON-LD without adding a traditional CMS backend.
 
 > **Git is the CMS. Your coding agent is the admin.**
 
@@ -18,7 +18,9 @@
 **Already have a homepage, docs, or SaaS site?** → **[INTEGRATION.md](./INTEGRATION.md)**
 
 ```bash
-# After wiring openblog.config.ts + chrome (see INTEGRATION.md):
+git clone https://github.com/kostja94/openblog.git
+cd openblog
+# Wire openblog.config.ts + chrome (see INTEGRATION.md)
 npm install
 npm run dev
 # → http://localhost:3000/blog
@@ -29,16 +31,16 @@ Optional: `npm run integrate -- --site https://yourproduct.com` · skill: `integ
 ### Greenfield demo
 
 ```bash
-# When create-openblog is on npm:
-npx create-openblog my-blog
-cd my-blog && npm install && npm run dev
-
-# From this monorepo (before npm publish):
+git clone https://github.com/kostja94/openblog.git
+cd openblog
 npm run create-openblog -- my-blog
 cd my-blog && npm install && npm run dev
+# → http://localhost:3000/blog
 ```
 
 Options: `--dir`, `--preset vercel-geist`, `--no-install`. Skill: `setup-blog-module`. See [create-openblog](./packages/create-openblog/README.md).
+
+**Try the template without scaffolding:** `npm install && npm run dev` from the cloned monorepo root.
 
 ### Agent skills
 
@@ -52,9 +54,9 @@ Entry skill: **`blog-cms`**. Full list: [skills/README.md](./skills/README.md)
 
 ---
 
-## What is OpenBlog?
+## Why OpenBlog?
 
-OpenBlog is a **Git-based CMS-like workflow** for a **blog module** on your product site — a CMS-free alternative to bolting WordPress onto `/blog`:
+Most product teams already manage their website, code review, and deployment in Git. OpenBlog extends that workflow to the blog instead of adding a separate application, database, and editorial control plane:
 
 | You get | Why it matters |
 |---------|----------------|
@@ -66,18 +68,16 @@ OpenBlog is a **Git-based CMS-like workflow** for a **blog module** on your prod
 
 Optional content workflows (`create-post`, `publish`) exist; **the primary path is mounting the module**, not auto-generating articles.
 
-**Not for:** whole-site CMS, AI writing platform, or site-wide SEO/GEO — see [Pair with marketing-skills](#pair-with-marketing-skills) below.
-
 ---
 
-## Use Cases
+## Choose Your Path
 
 | Scenario | Start here |
 |----------|------------|
 | Product site — add `/blog`, match nav/logo | [INTEGRATION.md](./INTEGRATION.md) |
 | Greenfield — local demo before integrating | `create-openblog` · `setup-blog-module` |
 | Agent-maintained posts | [AGENTS.md](./AGENTS.md) · `create-post` |
-| Site-wide SEO / GEO (homepage, docs) | [marketing-skills](https://github.com/kostja94/marketing-skills) |
+| Site-wide SEO / GEO beyond the blog | [marketing-skills](https://github.com/kostja94/marketing-skills) |
 
 ---
 
@@ -94,9 +94,9 @@ Optional content workflows (`create-post`, `publish`) exist; **the primary path 
 
 ---
 
-## Pair with marketing-skills
+## Scope and marketing-skills
 
-OpenBlog delivers the **blog slice** — routes, theme, chrome, and **blog-path SEO primitives** (sitemap, RSS, robots, JSON-LD). For **homepage SEO, GEO, keyword research, and content workflows** on the wider product site, pair with **[marketing-skills](https://github.com/kostja94/marketing-skills)**. OpenBlog works standalone; the combination is stronger when you also care about homepage, docs, and growth pages.
+OpenBlog delivers the **blog slice**: routes, theme, chrome, content validation, and blog-path SEO primitives. It is not a whole-site CMS or an AI writing platform. For homepage SEO, GEO, keyword research, content strategy, and growth pages across the wider product site, pair it with **[marketing-skills](https://github.com/kostja94/marketing-skills)**. Each repository also works independently.
 
 | In scope (OpenBlog) | Out of scope (use host site / marketing-skills) |
 |---------------------|---------------------------------------------------|
@@ -205,7 +205,8 @@ OpenBlog packages the **repeatable blog-module layer** from production AI produc
 
 - [x] Agent-native blog template + decoupled `packages/*` layers
 - [x] `openblog.config.ts`, three deploy modes, `integrate` + `theme:infer` + `create-openblog` CLIs
-- [x] `AGENTS.md` + Skills · CI frontmatter validation
+- [x] `AGENTS.md` + Skills · CI frontmatter validation · GitHub Actions build
+- [ ] Publish `create-openblog` to npm (`npx create-openblog`)
 - [ ] Optional: MCP tools for agent integration
 
 ---
