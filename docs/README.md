@@ -1,3 +1,11 @@
+---
+title: OpenBlog Documentation
+description: Index of maintained guides and repository references for the OpenBlog monorepo.
+type: index
+date: 2026-08-29
+updated: 2026-09-25
+---
+
 # OpenBlog Documentation
 
 Documentation index for the OpenBlog monorepo.
@@ -9,7 +17,7 @@ Documentation index for the OpenBlog monorepo.
 | [Features](./features.md) | Optional categories, tags, authors, RSS |
 | [Theming](./theming.md) | Presets, `theme:infer`, CSS tokens |
 | [Theme axes](./theme-axes/) | Six design-axis reference docs (01–06) |
-| [Component model](./component-model.md) | OpenBlog implementations mapped to Bricks concepts |
+| [Agent contracts](./component-model.md) | Generated mapping from OpenBlog implementations to Pagina pages and Bricks components |
 
 ## Related
 

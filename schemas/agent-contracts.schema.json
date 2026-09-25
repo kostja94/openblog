@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kostja94/openblog/blob/main/schemas/agent-contracts.schema.json",
+  "title": "OpenBlog Agent Contract Implementations",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "documentation", "pagina", "bricks"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "updated"],
+      "properties": {
+        "date": { "type": "string", "format": "date" },
+        "updated": { "type": "string", "format": "date" }
+      }
+    },
+    "pagina": { "$ref": "#/$defs/contract" },
+    "bricks": { "$ref": "#/$defs/contract" }
+  },
+  "$defs": {
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "catalog", "implementations"],
+      "properties": {
+        "repository": { "type": "string", "format": "uri" },
+        "catalog": { "type": "string", "minLength": 1 },
+        "implementations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "path"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "name": { "type": "string", "minLength": 1 },
+              "path": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

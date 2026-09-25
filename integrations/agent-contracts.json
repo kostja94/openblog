@@ -1,0 +1,60 @@
+{
+  "$schema": "../schemas/agent-contracts.schema.json",
+  "version": "1.0.0",
+  "documentation": {
+    "date": "2026-08-29",
+    "updated": "2026-09-25"
+  },
+  "pagina": {
+    "repository": "https://github.com/kostja94/pagina",
+    "catalog": "catalog/pages.json",
+    "implementations": [
+      {
+        "id": "blog-index",
+        "name": "Blog Index",
+        "path": "templates/next/src/app/blog/page.tsx"
+      },
+      {
+        "id": "article",
+        "name": "Article Page",
+        "path": "templates/next/src/app/blog/[slug]/page.tsx"
+      }
+    ]
+  },
+  "bricks": {
+    "repository": "https://github.com/kostja94/bricks",
+    "catalog": "catalog/components.json",
+    "implementations": [
+      {
+        "id": "blog-index",
+        "name": "Blog Index",
+        "path": "packages/components/src/required/blog-index.tsx"
+      },
+      {
+        "id": "article-layout",
+        "name": "Article Layout",
+        "path": "packages/components/src/required/article-layout.tsx"
+      },
+      {
+        "id": "breadcrumb",
+        "name": "Breadcrumb",
+        "path": "packages/components/src/required/breadcrumbs.tsx"
+      },
+      {
+        "id": "author-bio",
+        "name": "Author Bio",
+        "path": "packages/components/src/optional/author-box.tsx"
+      },
+      {
+        "id": "table-of-contents",
+        "name": "Table of Contents",
+        "path": "packages/components/src/optional/toc.tsx"
+      },
+      {
+        "id": "social-share",
+        "name": "Social Share",
+        "path": "packages/components/src/optional/share-bar.tsx"
+      }
+    ]
+  }
+}

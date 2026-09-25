@@ -9,11 +9,13 @@
   "scripts": {
     "dev": "npm run dev --workspace=openblog-template",
     "build": "npm run build --workspace=openblog-template",
-    "test": "vitest run",
+    "test": "vitest run && npm run contracts:check",
     "test:scaffold": "tsx scripts/smoke-scaffold.ts",
     "lint": "npm run lint --workspace=openblog-template",
     "validate:posts": "npm run validate:posts --workspace=openblog-template",
     "theme:infer": "tsx scripts/theme-infer.ts",
+    "contracts:generate": "node scripts/agent-contracts.mjs --write",
+    "contracts:check": "node scripts/agent-contracts.mjs",
     "integrate": "tsx scripts/integrate.ts",
     "create-openblog": "tsx packages/create-openblog/src/index.ts",
     "theme:sync": "npm run theme:sync --workspace=openblog-template"

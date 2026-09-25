@@ -1,224 +1,230 @@
-# OpenBlog — Agent-Native Blog Infrastructure
+# OpenBlog: Git-Based Blog CMS for Product Websites
 
+[![CI](https://github.com/kostja94/openblog/actions/workflows/ci.yml/badge.svg)](https://github.com/kostja94/openblog/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/kostja94/openblog)](https://github.com/kostja94/openblog/stargazers)
 
-**OpenBlog** is an open-source, agent-native blog module for product websites. Mount it at `/blog`, keep Markdown in Git as the content source of truth, and let coding agents maintain the module through reviewable Pull Requests. The Next.js template renders list pages, post pages, RSS, sitemap, and JSON-LD without adding a traditional CMS backend.
+**OpenBlog** is an open-source, agent-native blog CMS for product websites. Mount it at `/blog`, keep Markdown in Git as the content source of truth, and let coding agents maintain content, routes, theme, site chrome, and blog SEO through reviewable pull requests.
+
+The Next.js implementation ships blog list and article pages, taxonomy, RSS, sitemap, robots, canonical URLs, and JSON-LD without adding a CMS database or separate editorial backend.
 
 > **Git is the CMS. Your coding agent is the admin.**
 
-**By [kostja](https://github.com/kostja94)** · [INTEGRATION](./INTEGRATION.md) · [AGENTS](./AGENTS.md) · [Skills](./skills/README.md) · [Docs](./docs/README.md) · [How to build a blog without a CMS](https://alignify.co/blog/how-to-build-a-blog-without-a-cms-using-ai)
+**[Integrate OpenBlog into an existing product site →](./INTEGRATION.md)**
+
+Or try the standalone scaffold below.
 
 ---
 
-## Quick Start
+## Quick start
 
-### ★ Integrate on your product site (recommended)
+### Add `/blog` to an existing product site
 
-**Already have a homepage, docs, or SaaS site?** → **[INTEGRATION.md](./INTEGRATION.md)**
+Use this path when you already have a homepage, SaaS product, or documentation site and want the blog to share its domain, navigation, logo, and visual system.
 
 ```bash
 git clone https://github.com/kostja94/openblog.git
 cd openblog
-# Wire openblog.config.ts + chrome (see INTEGRATION.md)
 npm install
 npm run dev
-# → http://localhost:3000/blog
+# http://localhost:3000/blog
 ```
 
-Optional: `npm run integrate -- --site https://yourproduct.com` · skill: `integrate-product-site`
+Then follow [INTEGRATION.md](./INTEGRATION.md) to choose a subdirectory, monorepo, or subdomain pattern and connect `openblog.config.ts`, site chrome, theme, and deployment variables.
 
-### Greenfield demo
+Optional brand draft:
+
+```bash
+npm run integrate -- --site https://yourproduct.com
+```
+
+### Create a standalone blog
 
 ```bash
 git clone https://github.com/kostja94/openblog.git
 cd openblog
 npm run create-openblog -- my-blog
-cd my-blog && npm install && npm run dev
-# → http://localhost:3000/blog
+cd my-blog
+npm install
+npm run dev
+# http://localhost:3000/blog
 ```
 
-Options: `--dir`, `--preset vercel-geist`, `--no-install`. Skill: `setup-blog-module`. See [create-openblog](./packages/create-openblog/README.md).
+Scaffold options and output structure are documented in [packages/create-openblog](./packages/create-openblog/README.md). Demo configuration uses `openblog.ai` as a placeholder domain, not a live service.
 
-**Try the template without scaffolding:** `npm install && npm run dev` from the cloned monorepo root.
-
-### Agent skills
+### Install the Agent Skills
 
 ```bash
 npx skills add kostja94/openblog --skill blog-cms integrate-product-site setup-blog-module
 ```
 
-Entry skill: **`blog-cms`**. Full list: [skills/README.md](./skills/README.md)
+Start with `blog-cms` when the correct path is unclear. The complete skill catalog covers integration, setup, post maintenance, validation, and publishing: [skills/README.md](./skills/README.md).
 
-**Note:** Demo URLs in config/examples use **`openblog.ai`** as a placeholder domain (not a live site).
+## Why OpenBlog
 
----
+Most product teams already review website code and deployments in Git. OpenBlog extends that workflow to the blog instead of introducing another application, database, and disconnected design system.
 
-## Why OpenBlog?
+| OpenBlog provides | Why it matters |
+|---|---|
+| Markdown + YAML frontmatter in Git | Portable content, version history, searchable files, and reviewable diffs |
+| Product-site integration | Mount at `/blog` and reuse the host site's domain, navigation, logo, and design language |
+| Static blog routes | Crawlable list, article, category, tag, and author pages without a runtime content API |
+| Blog SEO primitives | Canonical URLs, sitemap, RSS, robots, metadata, and structured data are part of the module |
+| Agent contracts | `AGENTS.md`, Skills, schemas, and validation tell coding agents how to change the system safely |
+| Decoupled packages | Core, content, components, themes, and frontend adapters can evolve independently |
 
-Most product teams already manage their website, code review, and deployment in Git. OpenBlog extends that workflow to the blog instead of adding a separate application, database, and editorial control plane:
+OpenBlog is not an AI article generator. Agents maintain the CMS and can edit user-supplied content; editorial strategy and approval remain with the team.
 
-| You get | Why it matters |
-|---------|----------------|
-| **Git-backed Markdown / MDX** | Portable content, full version history, no database |
-| **Blog routes + theme + chrome** | List, post, category — styled to match your product site |
-| **SEO primitives built in** | Sitemap, RSS, robots, canonical URLs, JSON-LD, crawlable static pages |
-| **Agent Skills + `AGENTS.md`** | Agents follow schema and publish rules (module maintenance, not a writing platform) |
-| **Static output** | Fast CDN delivery, no runtime content API |
+## How it works
 
-Optional content workflows (`create-post`, `publish`) exist; **the primary path is mounting the module**, not auto-generating articles.
-
----
-
-## Choose Your Path
-
-| Scenario | Start here |
-|----------|------------|
-| Product site — add `/blog`, match nav/logo | [INTEGRATION.md](./INTEGRATION.md) |
-| Greenfield — local demo before integrating | `create-openblog` · `setup-blog-module` |
-| Agent-maintained posts | [AGENTS.md](./AGENTS.md) · `create-post` |
-| Site-wide SEO / GEO beyond the blog | [marketing-skills](https://github.com/kostja94/marketing-skills) |
-
----
-
-## Usage (Agent)
-
-| You say | Skill |
-|---------|-------|
-| "Add blog to my product site" / "integrate /blog" | `integrate-product-site` |
-| "Scaffold a new blog" / "create-openblog" | `setup-blog-module` |
-| "Not sure which path" | `blog-cms` |
-| "Add or edit a post" (you provide content) | `create-post` |
-| "Validate blog SEO before deploy" | `validate-blog-seo` |
-| "Publish / merge checklist" | `publish` |
-
----
-
-## Scope and marketing-skills
-
-OpenBlog delivers the **blog slice**: routes, theme, chrome, content validation, and blog-path SEO primitives. It is not a whole-site CMS or an AI writing platform. For homepage SEO, GEO, keyword research, content strategy, and growth pages across the wider product site, pair it with **[marketing-skills](https://github.com/kostja94/marketing-skills)**. Each repository also works independently.
-
-| In scope (OpenBlog) | Out of scope (use host site / marketing-skills) |
-|---------------------|---------------------------------------------------|
-| Blog list and post pages | Marketing landing pages |
-| Git Markdown + optional taxonomy/RSS | WYSIWYG admin (optional add-on: Tina, Decap, GitCMS) |
-| Blog-path SEO primitives | Site-level SEO, `llms.txt`, GEO audits |
-| Agent Skills for module maintenance | Multi-tenant SaaS, docs hub |
-
----
-
-## Architecture
-
-Layers are decoupled under `packages/`. Customize via **`openblog.config.ts`** at repo root.
-
+```text
+Markdown post
+    ↓
+Schema and link validation
+    ↓
+Next.js static routes + SEO metadata
+    ↓
+Preview and pull-request review
+    ↓
+Merge and deploy
 ```
+
+Posts live under `templates/next/content/blog/*.md`. The filename matches the slug, drafts stay out of RSS and sitemap output, and published slugs are statically generated.
+
+## What ships
+
+- Blog index and article routes
+- Category, tag, and author archives
+- RSS, sitemap, robots, canonical metadata, and JSON-LD
+- Configurable site header, footer, logo, navigation, and home URL
+- Theme presets and generated CSS tokens
+- Optional table of contents, author box, sharing, previous/next links, tags, TL;DR, and X embeds
+- Local Markdown content adapter with schema validation
+- Agent Skills for setup, integration, content operations, validation, and publishing
+
+Categories, tags, authors, and RSS are individually configurable. See [features](./docs/features.md) and [theming](./docs/theming.md).
+
+## Deployment patterns
+
+| Mode | Public URL example | Best fit |
+|---|---|---|
+| `subdirectory` | `yourproduct.com/blog/post-slug` | Existing product site with separate blog deployment |
+| `monorepo` | `yourproduct.com/blog/post-slug` | Blog routes maintained inside the product repository |
+| `subdomain` | `blog.yourproduct.com/post-slug` | Independently branded or deployed publication |
+| `standalone` | `example.com/blog/post-slug` | New blog without an existing product frontend |
+
+Reverse-proxy and asset-prefix details live in [INTEGRATION.md](./INTEGRATION.md) and the [deployment routing guide](./templates/next/docs/DEPLOY-ROUTING.md).
+
+## Production evidence
+
+[Alignify](https://alignify.co) runs the Markdown + Git + Agent workflow in production and identifies OpenBlog as the reusable module for this path. Its public implementation walkthrough documents the evolution from WordPress and generated prototypes to an agent-maintained Git workflow: [How to build a blog without a CMS using AI](https://alignify.co/blog/how-to-build-a-blog-without-a-cms-using-ai).
+
+OpenBlog also draws on broader product-site work documented by Alignify across **100+ AI products and partners**. That number describes Alignify's service and research experience—not 100+ verified OpenBlog installations. See the published [customer stories and partner scope](https://alignify.co/customer-stories).
+
+Repository-level evidence is reproducible: CI installs dependencies, runs unit tests, builds a fresh scaffold, lints the Next.js template, validates posts, and completes a production build.
+
+## Architecture comparison
+
+The useful question is not whether one CMS category always wins; it is who maintains content and where the source of truth should live.
+
+| Capability | OpenBlog | Traditional CMS | Headless CMS | Custom blog |
+|---|---|---|---|---|
+| Primary content source | Git Markdown | CMS database | Hosted content API/database | Project-specific |
+| Main editing workflow | Agent or developer edits + pull requests | Visual administration UI | Visual UI + API-driven frontend | Project-specific |
+| Product-site integration | Blog module, shared routes, or routed deployment | Theme or plugin integration | Custom frontend consuming an API | Fully custom |
+| Separate content database | No | Usually | Yes, provider-managed | Depends |
+| Blog routes included | Yes | Yes | Frontend required | Must be built |
+| SEO primitives | Included for blog paths | Core features and plugins | Frontend responsibility | Must be built |
+| Review model | Git diff, preview, CI, merge | CMS roles and workflow | CMS roles and workflow | Project-specific |
+| Strongest fit | Agent- or developer-maintained product sites | Teams publishing mainly through a visual admin | Multi-channel and structured editorial teams | Products with unique requirements |
+
+This table describes common architecture patterns, not every product in each category. If non-technical editors publish frequently or require complex approvals, a traditional, headless, or Git-based visual CMS may be a better fit than a pull-request-first workflow.
+
+## Configuration and content
+
+Users customize the module through `openblog.config.ts`; core packages should rarely need to be forked.
+
+```text
 openblog/
-├── INTEGRATION.md            # ★ Existing-site integration entry
-├── openblog.config.ts        # site + chrome + theme + features + content
-├── packages/                 # core, content, components, themes, create-openblog
-├── templates/next/           # Next.js frontend adapter
-├── integrations/             # Deploy patterns + chrome examples
-├── skills/                   # blog-cms + integrate + setup (+ optional content ops)
-└── AGENTS.md                 # Agent contract
+├── openblog.config.ts        # site, chrome, theme, features, content
+├── packages/                 # core, content, components, themes, scaffold CLI
+├── templates/next/           # Next.js routes, Markdown posts, chrome overrides
+├── integrations/             # deployment patterns and generated integration artifacts
+├── skills/                   # Agent workflows
+└── AGENTS.md                 # repository and content contract
 ```
 
-| Layer | Role |
-|-------|------|
-| **Template** | Blog module — list, post, category, RSS, sitemap |
-| **Skills (primary)** | `setup-blog-module`, `integrate-product-site` |
-| **Skills (optional)** | `create-post`, `validate-blog-seo`, `publish` |
-| **Contract** | `AGENTS.md` + Zod validation |
-
-Theming: [docs/theming.md](./docs/theming.md) · Features: [docs/features.md](./docs/features.md) · Deploy: [DEPLOY-ROUTING.md](./templates/next/docs/DEPLOY-ROUTING.md)
-
----
-
-## Features
-
-**Core:** Markdown + YAML front matter · list/post pages · drafts excluded from sitemap/RSS · CI validation (`npm run validate:posts`)
-
-**Optional (on by default, toggle in config):** categories, tags, author archives, RSS — [docs/features.md](./docs/features.md)
-
-**SEO:** per-post title/description/canonical (no trailing slash) · sitemap · RSS · robots · JSON-LD (`BlogPosting`, `BreadcrumbList`)
-
-**Deploy modes** — set `DEPLOY_MODE` in `.env.local`:
-
-| Mode | Public URL example | Use case |
-|------|-------------------|----------|
-| **subdirectory** | `yourproduct.com/blog/post-slug` | Blog module on a product site |
-| **subdomain** | `blog.yourproduct.com/post-slug` | Dedicated blog subdomain |
-| **standalone** | `openblog.ai/blog/post-slug` | Template demo (placeholder domain) |
-
-Subdirectory behind reverse proxy: set `ASSET_PREFIX=/blog` if `/_next/static` 404s.
-
----
-
-## Content model
+A post starts with validated frontmatter:
 
 ```yaml
 ---
 title: "Your post title"
-description: "SEO meta description and list excerpt (80–320 characters)"
+description: "A useful 80–320 character description for search and article discovery."
 slug: "your-post-slug"
-date: "2026-08-29"
-updated: "2026-08-29"
+date: "2026-09-25"
+author: "Your team"
 category: "engineering"
 tags: ["open-source", "blog"]
-author: "your-slug"
 draft: false
 ---
-
-Write the body in Markdown. Agents edit this file; you review the diff in a PR.
 ```
 
-**Rules** (`AGENTS.md` + CI): kebab-case `slug`, `description` 80–320 chars, root-relative internal links (`/blog/other-post`).
+The complete schema, URL rules, content paths, and validation requirements are maintained in [AGENTS.md](./AGENTS.md).
 
----
+## Agent and ecosystem contracts
 
-## Production usage
+OpenBlog includes Skills for the work around the CMS:
 
-| Site | Pattern |
-|------|---------|
-| **[Alignify](https://alignify.co)** | Product-site content hub — Git-backed, agent-maintained |
-| **100+ AI / SaaS teams** | Subdirectory/subdomain blogs on existing sites — [Customer Stories](https://alignify.co/customer-stories) |
+| Request | Skill |
+|---|---|
+| Add `/blog` to a product site | `integrate-product-site` |
+| Scaffold a standalone blog | `setup-blog-module` |
+| Add or edit user-supplied content | `create-post` |
+| Check blog SEO and build output | `validate-blog-seo` |
+| Follow the merge and deployment checklist | `publish` |
 
-OpenBlog packages the **repeatable blog-module layer** from production AI product sites. Walkthrough: [How to build a blog without a CMS, using AI](https://alignify.co/blog/how-to-build-a-blog-without-a-cms-using-ai)
+[Pagina](https://github.com/kostja94/pagina) owns reusable page contracts, and [Bricks](https://github.com/kostja94/bricks) owns reusable component contracts. OpenBlog declares which of those contracts its runnable CMS implements without taking runtime dependencies on either project. The generated mapping is in [Agent contracts](./docs/component-model.md).
 
----
+For site-wide SEO, GEO, keyword research, and growth work beyond the blog module, use [marketing-skills](https://github.com/kostja94/marketing-skills). OpenBlog only owns blog-path SEO primitives.
 
-## Compare
+## Scope
 
-| | OpenBlog | WordPress | Headless CMS | Skills-only |
-|--|----------|-----------|--------------|-------------|
-| Open source | Yes | Partial | Varies | Varies |
-| Blog module (not full CMS) | Yes | No | Varies | N/A |
-| Git-native content | Yes | No | Sometimes | Yes |
-| Agent-ready template | Yes | No | Rare | No |
-| Blog SEO primitives | Yes | Plugins | Varies | DIY |
-| Time to `/blog` on product site | Low | Medium | Medium | High |
+| OpenBlog is designed for | Choose another path when you need |
+|---|---|
+| Product-site blogs maintained by agents or developers | A whole-site or multi-tenant CMS |
+| Git-reviewed Markdown publishing | Daily self-service editing by a large non-technical team |
+| Static public content and blog taxonomy | Real-time collaborative editing or complex approval workflows |
+| A reusable `/blog` module | A marketing landing-page generator or documentation platform |
+| Blog-level SEO infrastructure | Site-wide keyword strategy, GEO, or campaign operations |
 
-**Stack:** Next.js (App Router) · Markdown + gray-matter · Zod · Tailwind · Vercel / Cloudflare / static CDN
+Optional visual editing can be added through tools such as Tina or Decap while keeping Git as the content source of truth, but those systems are not bundled with OpenBlog.
 
----
+## Development and verification
+
+```bash
+npm install
+npm test
+npm run lint
+npm run validate:posts
+npm run build
+```
+
+The repository uses Next.js App Router, TypeScript, Markdown with `gray-matter`, Zod, Tailwind CSS, Vitest, and npm workspaces.
 
 ## Roadmap
 
-- [x] Agent-native blog template + decoupled `packages/*` layers
-- [x] `openblog.config.ts`, three deploy modes, `integrate` + `theme:infer` + `create-openblog` CLIs
-- [x] `AGENTS.md` + Skills · CI frontmatter validation · GitHub Actions build
-- [ ] Publish `create-openblog` to npm (`npx create-openblog`)
-- [ ] Optional: MCP tools for agent integration
-
----
+- [x] Decoupled core, content, component, theme, and frontend layers
+- [x] Configurable deployment modes, chrome, themes, and optional features
+- [x] Agent contracts, content validation, CI, and standalone scaffolding
+- [ ] Publish `create-openblog` to npm for direct `npx create-openblog` usage
+- [ ] Explore optional MCP integration without changing Git as the source of truth
 
 ## Contributing
 
-OpenBlog is **MIT — use and fork freely** on your own sites. **Upstream PRs to this repo are enterprise-only** (design-token or platform partners). Details: [CONTRIBUTING.md](./CONTRIBUTING.md). Bug reports: GitHub Issues / Discussions. Maintainers: [docs/releasing.md](./docs/releasing.md).
-
----
+OpenBlog is MIT licensed: use it, adapt it, and fork it for your own sites. Upstream pull requests are reserved for enterprise design-token and component/platform partners; everyone can report bugs or propose improvements through Issues and Discussions. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
 [MIT](LICENSE)
 
-**Further reading:** [docs/README.md](./docs/README.md) · Lee Robinson — [Content is just code](https://leerob.com/agents)
+Maintained by [kostja](https://github.com/kostja94) · [Documentation](./docs/README.md) · [Release guide](./docs/releasing.md)
